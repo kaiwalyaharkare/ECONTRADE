@@ -1,0 +1,148 @@
+# %% [markdown]
+# Import necessary libraries
+
+# %%
+import pandas as pd
+import matplotlib.pyplot as plt
+import statsmodels.api as sm 
+
+# %% [markdown]
+# Load the dataset
+
+# %%
+data= pd.read_csv('ECONTRADE.csv')
+
+# %% [markdown]
+# Display initial data
+
+# %%
+print("Initial Data:")
+print(data.head())
+
+# %% [markdown]
+# Check for missing values
+
+# %%
+print("\nMissing Values Before Cleaning:")
+print(data.isnull().sum())
+
+
+# %% [markdown]
+# Drop rows with missing values
+
+# %%
+data_cleaned = data.dropna()
+
+# %%
+ Check if any missing values remain
+
+# %%
+print("\nMissing Values After Cleaning:")
+print(data_cleaned.isnull().sum())
+
+# %% [markdown]
+#  Converting currency columns from string to float and removing commas
+
+# %%
+# Converting currency columns from string to float and removing commas
+data_cleaned['Interprovincial exports of total products'] = data_cleaned['Interprovincial exports of total products'].replace(',', '', regex=True).astype(float)
+data_cleaned['International exports of total products'] = data_cleaned['International exports of total products'].replace(',', '', regex=True).astype(float)
+
+
+# %% [markdown]
+# Creating Panel ID
+# 
+
+# %%
+data_cleaned['Panel_ID'] = data_cleaned['ID'].astype(str) + "_" + data_cleaned['Year'].astype(str)
+
+
+# %% [markdown]
+#  Display cleaned data with Panel ID
+
+# %%
+print("\nCleaned Data with Panel IDs:")
+print(data_cleaned.head())
+
+# %% [markdown]
+#  Basic data analysis - Descriptive statistics
+
+# %%
+print("\nDescriptive Statistics:")
+print(data_cleaned.describe())
+
+# %% [markdown]
+#  Saving the cleaned data to a new CSV file
+
+# %%
+output_file_path = 'cleaned_data_with_panel_ids.csv'
+data_cleaned.to_csv(output_file_path, index=False)
+print(f"\nCleaned data saved to {output_file_path}")
+
+# %% [markdown]
+# Group data by 'Provinces' and 'Year' and sum the exports
+
+# %%
+grouped_data = data_cleaned.groupby(['Provinces', 'Year']).sum().reset_index()
+
+
+# %% [markdown]
+# Pivot data for easier plotting
+
+# %%
+pivot_interprovincial = grouped_data.pivot(index='Year', columns='Provinces', values='Interprovincial exports of total products')
+pivot_international = grouped_data.pivot(index='Year', columns='Provinces', values='International exports of total products')
+
+# %% [markdown]
+# Plotting the trends
+
+# %%
+plt.figure(figsize=(14, 7))
+plt.subplot(1, 2, 1)
+pivot_interprovincial.plot(ax=plt.gca())
+plt.title('Trend of Interprovincial Exports by Province')
+plt.xlabel('Year')
+plt.ylabel('Total Exports (in thousands)')
+
+plt.subplot(1, 2, 2)
+pivot_international.plot(ax=plt.gca())
+plt.title('Trend of International Exports by Province')
+plt.xlabel('Year')
+plt.ylabel('Total Exports (in thousands)')
+
+plt.tight_layout()
+plt.show()
+
+# %%
+grouped_data.head()
+
+# %%
+
+
+# %%
+# Group data by province and calculate sums of exports
+province_interprovincial = data_cleaned.groupby('Provinces')['Interprovincial exports of total products'].sum().reset_index()
+province_international = data_cleaned.groupby('Provinces')['International exports of total products'].sum().reset_index()
+
+# Create a figure with two subplots
+fig, axs = plt.subplots(1, 2, figsize=(24, 12))
+
+# Create a pie chart for interprovincial exports
+axs[0].pie(province_interprovincial['Interprovincial exports of total products'], labels=province_interprovincial['Provinces'], autopct='%1.1f%%', startangle=90, textprops={'fontsize': 12})
+axs[0].set_title('Interprovincial Exports by Province', fontsize=18)
+axs[0].axis('equal')
+
+# Create a pie chart for international exports
+axs[1].pie(province_international['International exports of total products'], labels=province_international['Provinces'], autopct='%1.1f%%', startangle=90, textprops={'fontsize': 12})
+axs[1].set_title('International Exports by Province', fontsize=18)
+axs[1].axis('equal')
+
+# Layout so plots do not overlap
+fig.tight_layout()
+
+plt.show()
+
+# %%
+
+
+
