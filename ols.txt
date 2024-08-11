@@ -3,8 +3,8 @@
 Dep. Variable:     Interprovincial exports of total products   R-squared:                       0.969
 Model:                                                   OLS   Adj. R-squared:                  0.968
 Method:                                        Least Squares   F-statistic:                     4270.
-Date:                                       Thu, 01 Aug 2024   Prob (F-statistic):          1.09e-105
-Time:                                               14:36:28   Log-Likelihood:                -1433.6
+Date:                                       Sat, 10 Aug 2024   Prob (F-statistic):          1.09e-105
+Time:                                               16:05:26   Log-Likelihood:                -1433.6
 No. Observations:                                        140   AIC:                             2871.
 Df Residuals:                                            138   BIC:                             2877.
 Df Model:                                                  1                                         

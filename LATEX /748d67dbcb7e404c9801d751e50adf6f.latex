@@ -1,0 +1,443 @@
+\documentclass[11pt]{article}
+\usepackage{graphicx}
+\usepackage{biblatex}
+\addbibresource{ref}
+\usepackage{hyperref}
+\usepackage{setspace}
+\usepackage{xurl}
+\usepackage[breaklinks=true]{hyperref}
+
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{lmodern}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\newenvironment{Shaded}{}{}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{#1}}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.49,0.56,0.16}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{#1}}
+\newcommand{\BuiltInTok}[1]{\textcolor[rgb]{0.00,0.50,0.00}{#1}}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.53,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.56,0.13,0.00}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.73,0.13,0.13}{\textit{#1}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.02,0.16,0.49}{#1}}
+\newcommand{\ImportTok}[1]{\textcolor[rgb]{0.00,0.50,0.00}{\textbf{#1}}}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.40,0.40,0.40}{#1}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.74,0.48,0.00}{#1}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.73,0.40,0.53}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.10,0.09,0.49}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same} % disable monospaced font for URLs
+\hypersetup{
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\author{}
+\date{}
+
+\begin{document}
+
+Import necessary libraries
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ImportTok{import}\NormalTok{ pandas }\ImportTok{as}\NormalTok{ pd}
+\ImportTok{import}\NormalTok{ matplotlib.pyplot }\ImportTok{as}\NormalTok{ plt}
+\ImportTok{import}\NormalTok{ statsmodels.api }\ImportTok{as}\NormalTok{ sm }
+\end{Highlighting}
+\end{Shaded}
+
+Load the dataset
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{data}\OperatorTok{=}\NormalTok{ pd.read\_csv(}\StringTok{\textquotesingle{}ECONTRADE.csv\textquotesingle{}}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+Display initial data
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\BuiltInTok{print}\NormalTok{(}\StringTok{"Initial Data:"}\NormalTok{)}
+\BuiltInTok{print}\NormalTok{(data.head())}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+Initial Data:
+                   Provinces   ID  Year  \
+0  Newfoundland and Labrador  1.0  2007   
+1  Newfoundland and Labrador  1.0  2008   
+2  Newfoundland and Labrador  1.0  2009   
+3  Newfoundland and Labrador  1.0  2010   
+4  Newfoundland and Labrador  1.0  2011   
+
+  Interprovincial exports of total products  \
+0                                  8,718.00   
+1                                  9,087.00   
+2                                  5,553.70   
+3                                  7,363.00   
+4                                  8,804.50   
+
+  International exports of total products  
+0                               11,966.70  
+1                               15,114.30  
+2                                9,253.00  
+3                               10,748.10  
+4                               13,345.40  
+\end{verbatim}
+
+Check for missing values
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\BuiltInTok{print}\NormalTok{(}\StringTok{"}\CharTok{\textbackslash{}n}\StringTok{Missing Values Before Cleaning:"}\NormalTok{)}
+\BuiltInTok{print}\NormalTok{(data.isnull().}\BuiltInTok{sum}\NormalTok{())}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+
+Missing Values Before Cleaning:
+Provinces                                     6
+ID                                           14
+Year                                         10
+Interprovincial exports of total products    14
+International exports of total products      14
+dtype: int64
+\end{verbatim}
+
+Drop rows with missing values
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{data\_cleaned }\OperatorTok{=}\NormalTok{ data.dropna()}
+\end{Highlighting}
+\end{Shaded}
+
+Check if any missing values remain
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\BuiltInTok{print}\NormalTok{(}\StringTok{"}\CharTok{\textbackslash{}n}\StringTok{Missing Values After Cleaning:"}\NormalTok{)}
+\BuiltInTok{print}\NormalTok{(data\_cleaned.isnull().}\BuiltInTok{sum}\NormalTok{())}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+
+Missing Values After Cleaning:
+Provinces                                    0
+ID                                           0
+Year                                         0
+Interprovincial exports of total products    0
+International exports of total products      0
+dtype: int64
+\end{verbatim}
+
+Converting currency columns from string to float and removing commas
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Converting currency columns from string to float and removing commas}
+\NormalTok{data\_cleaned[}\StringTok{\textquotesingle{}Interprovincial exports of total products\textquotesingle{}}\NormalTok{] }\OperatorTok{=}\NormalTok{ data\_cleaned[}\StringTok{\textquotesingle{}Interprovincial exports of total products\textquotesingle{}}\NormalTok{].replace(}\StringTok{\textquotesingle{},\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}\textquotesingle{}}\NormalTok{, regex}\OperatorTok{=}\VariableTok{True}\NormalTok{).astype(}\BuiltInTok{float}\NormalTok{)}
+\NormalTok{data\_cleaned[}\StringTok{\textquotesingle{}International exports of total products\textquotesingle{}}\NormalTok{] }\OperatorTok{=}\NormalTok{ data\_cleaned[}\StringTok{\textquotesingle{}International exports of total products\textquotesingle{}}\NormalTok{].replace(}\StringTok{\textquotesingle{},\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}\textquotesingle{}}\NormalTok{, regex}\OperatorTok{=}\VariableTok{True}\NormalTok{).astype(}\BuiltInTok{float}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+/var/folders/b1/58gn_xfd2jl121wl3xj_47y80000gn/T/ipykernel_60151/126710693.py:2: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data_cleaned['Interprovincial exports of total products'] = data_cleaned['Interprovincial exports of total products'].replace(',', '', regex=True).astype(float)
+/var/folders/b1/58gn_xfd2jl121wl3xj_47y80000gn/T/ipykernel_60151/126710693.py:3: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data_cleaned['International exports of total products'] = data_cleaned['International exports of total products'].replace(',', '', regex=True).astype(float)
+\end{verbatim}
+
+Creating Panel ID
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{data\_cleaned[}\StringTok{\textquotesingle{}Panel\_ID\textquotesingle{}}\NormalTok{] }\OperatorTok{=}\NormalTok{ data\_cleaned[}\StringTok{\textquotesingle{}ID\textquotesingle{}}\NormalTok{].astype(}\BuiltInTok{str}\NormalTok{) }\OperatorTok{+} \StringTok{"\_"} \OperatorTok{+}\NormalTok{ data\_cleaned[}\StringTok{\textquotesingle{}Year\textquotesingle{}}\NormalTok{].astype(}\BuiltInTok{str}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+/var/folders/b1/58gn_xfd2jl121wl3xj_47y80000gn/T/ipykernel_60151/431545430.py:1: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data_cleaned['Panel_ID'] = data_cleaned['ID'].astype(str) + "_" + data_cleaned['Year'].astype(str)
+\end{verbatim}
+
+Display cleaned data with Panel ID
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\BuiltInTok{print}\NormalTok{(}\StringTok{"}\CharTok{\textbackslash{}n}\StringTok{Cleaned Data with Panel IDs:"}\NormalTok{)}
+\BuiltInTok{print}\NormalTok{(data\_cleaned.head())}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+
+Cleaned Data with Panel IDs:
+                   Provinces   ID  Year  \
+0  Newfoundland and Labrador  1.0  2007   
+1  Newfoundland and Labrador  1.0  2008   
+2  Newfoundland and Labrador  1.0  2009   
+3  Newfoundland and Labrador  1.0  2010   
+4  Newfoundland and Labrador  1.0  2011   
+
+   Interprovincial exports of total products  \
+0                                     8718.0   
+1                                     9087.0   
+2                                     5553.7   
+3                                     7363.0   
+4                                     8804.5   
+
+   International exports of total products  Panel_ID  
+0                                  11966.7  1.0_2007  
+1                                  15114.3  1.0_2008  
+2                                   9253.0  1.0_2009  
+3                                  10748.1  1.0_2010  
+4                                  13345.4  1.0_2011  
+\end{verbatim}
+
+Basic data analysis - Descriptive statistics
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\BuiltInTok{print}\NormalTok{(}\StringTok{"}\CharTok{\textbackslash{}n}\StringTok{Descriptive Statistics:"}\NormalTok{)}
+\BuiltInTok{print}\NormalTok{(data\_cleaned.describe())}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+
+Descriptive Statistics:
+              ID  Interprovincial exports of total products  \
+count  140.00000                                 140.000000   
+mean     5.40000                               36222.555000   
+std      2.73743                               38432.213016   
+min      1.00000                                1133.000000   
+25%      3.00000                                8141.400000   
+50%      5.50000                               17989.050000   
+75%      8.00000                               62133.825000   
+max      9.00000                              146718.500000   
+
+       International exports of total products  
+count                               140.000000  
+mean                              56293.147857  
+std                               69755.593561  
+min                                 925.400000  
+25%                               11257.775000  
+50%                               17897.450000  
+75%                               86472.450000  
+max                              291476.500000  
+\end{verbatim}
+
+Saving the cleaned data to a new CSV file
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{output\_file\_path }\OperatorTok{=} \StringTok{\textquotesingle{}cleaned\_data\_with\_panel\_ids.csv\textquotesingle{}}
+\NormalTok{data\_cleaned.to\_csv(output\_file\_path, index}\OperatorTok{=}\VariableTok{False}\NormalTok{)}
+\BuiltInTok{print}\NormalTok{(}\SpecialStringTok{f"}\CharTok{\textbackslash{}n}\SpecialStringTok{Cleaned data saved to }\SpecialCharTok{\{}\NormalTok{output\_file\_path}\SpecialCharTok{\}}\SpecialStringTok{"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+
+Cleaned data saved to cleaned_data_with_panel_ids.csv
+\end{verbatim}
+
+Group data by \textquotesingle Provinces\textquotesingle{} and
+\textquotesingle Year\textquotesingle{} and sum the exports
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{grouped\_data }\OperatorTok{=}\NormalTok{ data\_cleaned.groupby([}\StringTok{\textquotesingle{}Provinces\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}Year\textquotesingle{}}\NormalTok{]).}\BuiltInTok{sum}\NormalTok{().reset\_index()}
+\end{Highlighting}
+\end{Shaded}
+
+Pivot data for easier plotting
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{pivot\_interprovincial }\OperatorTok{=}\NormalTok{ grouped\_data.pivot(index}\OperatorTok{=}\StringTok{\textquotesingle{}Year\textquotesingle{}}\NormalTok{, columns}\OperatorTok{=}\StringTok{\textquotesingle{}Provinces\textquotesingle{}}\NormalTok{, values}\OperatorTok{=}\StringTok{\textquotesingle{}Interprovincial exports of total products\textquotesingle{}}\NormalTok{)}
+\NormalTok{pivot\_international }\OperatorTok{=}\NormalTok{ grouped\_data.pivot(index}\OperatorTok{=}\StringTok{\textquotesingle{}Year\textquotesingle{}}\NormalTok{, columns}\OperatorTok{=}\StringTok{\textquotesingle{}Provinces\textquotesingle{}}\NormalTok{, values}\OperatorTok{=}\StringTok{\textquotesingle{}International exports of total products\textquotesingle{}}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+Plotting the trends
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{plt.figure(figsize}\OperatorTok{=}\NormalTok{(}\DecValTok{14}\NormalTok{, }\DecValTok{7}\NormalTok{))}
+\NormalTok{plt.subplot(}\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{1}\NormalTok{)}
+\NormalTok{pivot\_interprovincial.plot(ax}\OperatorTok{=}\NormalTok{plt.gca())}
+\NormalTok{plt.title(}\StringTok{\textquotesingle{}Trend of Interprovincial Exports by Province\textquotesingle{}}\NormalTok{)}
+\NormalTok{plt.xlabel(}\StringTok{\textquotesingle{}Year\textquotesingle{}}\NormalTok{)}
+\NormalTok{plt.ylabel(}\StringTok{\textquotesingle{}Total Exports (in thousands)\textquotesingle{}}\NormalTok{)}
+
+\NormalTok{plt.subplot(}\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{2}\NormalTok{)}
+\NormalTok{pivot\_international.plot(ax}\OperatorTok{=}\NormalTok{plt.gca())}
+\NormalTok{plt.title(}\StringTok{\textquotesingle{}Trend of International Exports by Province\textquotesingle{}}\NormalTok{)}
+\NormalTok{plt.xlabel(}\StringTok{\textquotesingle{}Year\textquotesingle{}}\NormalTok{)}
+\NormalTok{plt.ylabel(}\StringTok{\textquotesingle{}Total Exports (in thousands)\textquotesingle{}}\NormalTok{)}
+
+\NormalTok{plt.tight\_layout()}
+\NormalTok{plt.show()}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{vertopal_748d67dbcb7e404c9801d751e50adf6f/5423c07e5901060f46ffde99e6de3e351505cd56.png}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{grouped\_data.head()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+  Provinces  Year   ID  Interprovincial exports of total products  \
+0   Alberta  2007  9.0                                    53360.0   
+1   Alberta  2008  9.0                                    57867.0   
+2   Alberta  2009  9.0                                    57966.3   
+3   Alberta  2010  9.0                                    60614.6   
+4   Alberta  2011  9.0                                    64258.6   
+
+   International exports of total products  Panel_ID  
+0                                  88199.6  9.0_2007  
+1                                 111903.7  9.0_2008  
+2                                  73425.0  9.0_2009  
+3                                  80059.1  9.0_2010  
+4                                  96639.6  9.0_2011  
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Group data by province and calculate sums of exports}
+\NormalTok{province\_interprovincial }\OperatorTok{=}\NormalTok{ data\_cleaned.groupby(}\StringTok{\textquotesingle{}Provinces\textquotesingle{}}\NormalTok{)[}\StringTok{\textquotesingle{}Interprovincial exports of total products\textquotesingle{}}\NormalTok{].}\BuiltInTok{sum}\NormalTok{().reset\_index()}
+\NormalTok{province\_international }\OperatorTok{=}\NormalTok{ data\_cleaned.groupby(}\StringTok{\textquotesingle{}Provinces\textquotesingle{}}\NormalTok{)[}\StringTok{\textquotesingle{}International exports of total products\textquotesingle{}}\NormalTok{].}\BuiltInTok{sum}\NormalTok{().reset\_index()}
+
+\CommentTok{\# Create a figure with two subplots}
+\NormalTok{fig, axs }\OperatorTok{=}\NormalTok{ plt.subplots(}\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{, figsize}\OperatorTok{=}\NormalTok{(}\DecValTok{24}\NormalTok{, }\DecValTok{12}\NormalTok{))}
+
+\CommentTok{\# Create a pie chart for interprovincial exports}
+\NormalTok{axs[}\DecValTok{0}\NormalTok{].pie(province\_interprovincial[}\StringTok{\textquotesingle{}Interprovincial exports of total products\textquotesingle{}}\NormalTok{], labels}\OperatorTok{=}\NormalTok{province\_interprovincial[}\StringTok{\textquotesingle{}Provinces\textquotesingle{}}\NormalTok{], autopct}\OperatorTok{=}\StringTok{\textquotesingle{}}\SpecialCharTok{\%1.1f\%\%}\StringTok{\textquotesingle{}}\NormalTok{, startangle}\OperatorTok{=}\DecValTok{90}\NormalTok{, textprops}\OperatorTok{=}\NormalTok{\{}\StringTok{\textquotesingle{}fontsize\textquotesingle{}}\NormalTok{: }\DecValTok{12}\NormalTok{\})}
+\NormalTok{axs[}\DecValTok{0}\NormalTok{].set\_title(}\StringTok{\textquotesingle{}Interprovincial Exports by Province\textquotesingle{}}\NormalTok{, fontsize}\OperatorTok{=}\DecValTok{18}\NormalTok{)}
+\NormalTok{axs[}\DecValTok{0}\NormalTok{].axis(}\StringTok{\textquotesingle{}equal\textquotesingle{}}\NormalTok{)}
+
+\CommentTok{\# Create a pie chart for international exports}
+\NormalTok{axs[}\DecValTok{1}\NormalTok{].pie(province\_international[}\StringTok{\textquotesingle{}International exports of total products\textquotesingle{}}\NormalTok{], labels}\OperatorTok{=}\NormalTok{province\_international[}\StringTok{\textquotesingle{}Provinces\textquotesingle{}}\NormalTok{], autopct}\OperatorTok{=}\StringTok{\textquotesingle{}}\SpecialCharTok{\%1.1f\%\%}\StringTok{\textquotesingle{}}\NormalTok{, startangle}\OperatorTok{=}\DecValTok{90}\NormalTok{, textprops}\OperatorTok{=}\NormalTok{\{}\StringTok{\textquotesingle{}fontsize\textquotesingle{}}\NormalTok{: }\DecValTok{12}\NormalTok{\})}
+\NormalTok{axs[}\DecValTok{1}\NormalTok{].set\_title(}\StringTok{\textquotesingle{}International Exports by Province\textquotesingle{}}\NormalTok{, fontsize}\OperatorTok{=}\DecValTok{18}\NormalTok{)}
+\NormalTok{axs[}\DecValTok{1}\NormalTok{].axis(}\StringTok{\textquotesingle{}equal\textquotesingle{}}\NormalTok{)}
+
+\CommentTok{\# Layout so plots do not overlap}
+\NormalTok{fig.tight\_layout()}
+
+\NormalTok{plt.show()}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{vertopal_748d67dbcb7e404c9801d751e50adf6f/35956afc25c867dc6c3b6153cdab6f20f24005b2.png}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+
+\end{Highlighting}
+\end{Shaded}
+
+
+\end{document}
